@@ -1,0 +1,23 @@
+{
+  "name": "blogovs",
+  "description": "Blog of Foreign Relations Department",
+  "main": "index.js",
+  "authors": [
+    "7ovs group"
+  ],
+  "license": "MIT",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "^1.6.2",
+    "moment": "^2.17.1",
+    "lodash": "^4.17.4",
+    "uikit": "^2.27.2"
+  }
+}

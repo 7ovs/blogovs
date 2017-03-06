@@ -1,0 +1,34 @@
+{
+  "name": "blogovs",
+  "version": "0.0.1",
+  "description": "Blog of Foreign Relations Department",
+  "main": "index.js",
+  "dependencies": {
+    "body-parser": "^1.15.2",
+    "coffee-script": "^1.12.2",
+    "color": "^1.0.3",
+    "ect": "^0.5.9",
+    "express": "^4.14.0",
+    "lodash": "^4.17.2",
+    "moment": "^2.17.1",
+    "mongodb": "^2.2.16",
+    "mongoose": "^4.7.4",
+    "morgan": "^1.7.0"
+  },
+  "devDependencies": {
+    "grunt": "^1.0.1",
+    "grunt-contrib-clean": "^1.0.0",
+    "grunt-contrib-coffee": "^1.0.0",
+    "grunt-contrib-concat": "^1.0.1",
+    "grunt-contrib-copy": "^1.0.0",
+    "grunt-contrib-cssmin": "^1.0.2",
+    "grunt-contrib-less": "^1.4.0",
+    "grunt-contrib-uglify": "^2.0.0",
+    "grunt-contrib-watch": "^1.0.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "7ovs group",
+  "license": "MIT"
+}
