@@ -31,18 +31,18 @@ module.exports = (grunt) ->
 
 
     #=== LESS
-    less: 
+    less:
       core:
         options:
           paths: [
             "#{APP_DIR}/styles"
-            "bower_components/uikit/less"
+            "bower_components/uikit/src/less"
           ]
         files:
           "#{DEV_DIR}/pub/css/uikit.css": "#{APP_DIR}/styles/uikit.less"
 
 
-      app: 
+      app:
         options:
           paths: [
             "#{APP_DIR}/styles"
@@ -62,7 +62,8 @@ module.exports = (grunt) ->
           "#{BOWER}/angular/angular.js"
           "#{BOWER}/moment/min/moment.min.js"
           "#{BOWER}/moment/min/langs.min.js"
-          "#{BOWER}/uikit/js/uikit.js"
+          "#{BOWER}/uikit/dist/js/uikit.js"
+          "#{BOWER}/uikit/dist/js/uikit-icons.js"
         ]
         dest: "#{DEV_DIR}/pub/js/core.js"
 
@@ -88,14 +89,16 @@ module.exports = (grunt) ->
             dest: "#{DEV_DIR}/pub/fonts"
           ,
             expand: yes
+            src: ["package.json", "Procfile"]
+            dest: "dev"
+            filter: 'isFile'
+        ]
+      views:
+        files: [
+            expand: yes
             cwd: "#{APP_DIR}/views/"
             src: "**"
             dest: "#{DEV_DIR}/views"
-          ,
-            expand: yes
-            src: ["package.json", "Procfile"]
-            dest: "dev"
-            filter: 'isFile' 
         ]
 
 
@@ -108,25 +111,33 @@ module.exports = (grunt) ->
 
     watch:
       styles:
-        files: ['#{APP_DIR}/styles/*.less']
-        tasks: ['less']
-        options:                                                                                                 spawn: no
-
-      coffee_client:                                                                                                                 
-        files: ['#{APP_DIR}/scripts/*.coffee']                                                                                                   
-        tasks: ['coffee']                                                                                                      
-        options:                                                                                                               
+        files: ["#{APP_DIR}/styles/*.less"]
+        tasks: ["less"]
+        options:
           spawn: no
 
-      coffee_server:                                                                                                                 
-        files: ['#{APP_DIR}/app.coffee']                                                                                                   
-        tasks: ['coffee:server']                                                                                                   
-        options:                                                                                                               
+      coffee_client:
+        files: ["#{APP_DIR}/scripts/*.coffee"]
+        tasks: ["coffee"]
+        options:
+          spawn: no
+
+      coffee_server:
+        files: ["#{APP_DIR}/app.coffee"]
+        tasks: ["coffee:server"]
+        options:
+          spawn: no
+
+      view:
+        files: ["#{APP_DIR}/views/**"]
+        tasks: ["copy:views"]
+        options:
           spawn: no
 
       gruntfile:
           files: ["Gruntfile.coffee"]
-          options: 
+          tasks: ["default"]
+          options:
             reload: yes
 
     grunt.registerTask "default", ["clean:pub", "coffee", "less", "concat", "copy", "clean:temp"]
