@@ -1,0 +1,31 @@
+@import "uikit.theme.less";
+
+@navbar-background: #444;
+@navbar-nav-item-color: #aaa;
+@navbar-nav-item-hover-color: #eee;
+@navbar-toggle-color: #777;
+@logo-color: #ddd;
+@logo-hover-color: #fff;
+
+body {
+  &:before, &:after {
+    content: "";
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    bottom: 0px;
+    width: 50%;
+    z-index: -10000;
+    background-image: url(/img/bg-l.png);
+  }
+  &:after {
+    left: auto;
+    right: 0px;
+    background-image: url(/img/bg-r.png);
+  }
+}
+
+.main {
+  background: #fff;
+  padding-top: @navbar-nav-item-height + @global-margin;
+}

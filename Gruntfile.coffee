@@ -13,7 +13,7 @@ module.exports = (grunt) ->
   TMP_DIR = 'tmp'
   DEV_DIR = 'dev'
   DST_DIR = 'dst'
-  BOWER = 'bower_components'
+  BOWER   = 'bower_components'
 
   grunt.initConfig
 
@@ -32,21 +32,11 @@ module.exports = (grunt) ->
 
     #=== LESS
     less:
-      core:
-        options:
-          paths: [
-            "#{APP_DIR}/styles"
-            "bower_components/uikit/src/less"
-          ]
-        files:
-          "#{DEV_DIR}/pub/css/uikit.css": "#{APP_DIR}/styles/uikit.less"
-
-
       app:
         options:
           paths: [
             "#{APP_DIR}/styles"
-            "bower_components/uikit/less"
+            "#{BOWER}/uikit/src/less"
           ]
         files:
           "#{DEV_DIR}/pub/css/app.css": "#{APP_DIR}/styles/app.less"
